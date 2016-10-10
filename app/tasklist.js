@@ -9,7 +9,7 @@ if (Meteor.isClient) {
 
   Template.tasks.events({
     "submit .add-task": function(event) {
-      let name = event.target.name.value;
+      var name = event.target.name.value;
       Meteor.call('addTask', name);
       event.target.name.value = '';
       return false;
@@ -40,4 +40,4 @@ Meteor.methods({
 
   deleteTask: function(taskId) {
     Tasks.remove(taskId);
-  }
+  }})
